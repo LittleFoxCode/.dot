@@ -1,0 +1,6 @@
+set linenumbers
+set boldtext
+set softwrap
+
+
+include "~/.config/nano/nanosyntax/tex.nanorc"
