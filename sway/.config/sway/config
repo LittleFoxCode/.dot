@@ -51,6 +51,16 @@ workspace 10 output DP-2
 
 bindsym $mod+Shift+m output eDP-1 toggle
 
+default_border pixel
+gaps outer 2
+gaps inner 8
+
+client.focused              #dee0e3 #dee0e3 #cecece #dee0e3 #dee0e3
+client.focused_inactive     #5c6470 #5c6470 #cecece #5c6470 #5c6470
+client.unfocused            #5c6470 #5c6470 #cecece #5c6470 #5c6470
+client.urgent               #5c6470 #5c6470 #cecece #5c6470 #5c6470
+client.placeholder          #5c6470 #5c6470 #cecece #5c6470 #5c6470
+
 bindsym --locked $mod+Shift+s exec systemctl suspend
 
 ### Idle configuration
