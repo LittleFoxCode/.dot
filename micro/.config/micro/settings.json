@@ -1,3 +1,4 @@
 {
-    "softwrap": true
+    "softwrap": true,
+    "tabstospaces": true,
 }

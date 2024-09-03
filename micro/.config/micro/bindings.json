@@ -1,4 +1,24 @@
 {
     "Alt-/": "lua:comment.comment",
-    "CtrlUnderscore": "lua:comment.comment"
+    "CtrlUnderscore": "lua:comment.comment",
+
+	"Ctrl-s": "Find",
+
+    "Ctrl-f": "CursorRight",
+    "Ctrl-b": "CursorLeft",
+    "Ctrl-p": "CursorUp",
+    "Ctrl-n": "CursorDown",
+    
+    "Ctrl-x": "Save",
+    
+    "Ctrl-w": "Cut",
+    "Alt-w": "Copy",
+    "Ctrl-y": "Paste",
+    
+    "Ctrl-u": "Undo",
+    "Ctrl-r": "Redo",
+    
+    "Ctrl-v": "VSplit",
+    "Alt-v": "NextSplit",
+    "Ctrl-Alt-v": "Unsplit",
 }
