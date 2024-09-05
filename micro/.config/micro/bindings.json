@@ -14,6 +14,11 @@
     "Ctrl-w": "Cut",
     "Alt-w": "Copy",
     "Ctrl-y": "Paste",
+
+    "Ctrl-Alt-f": "SelectRight",
+    "Ctrl-Alt-b": "SelectLeft",
+    "Ctrl-Alt-p": "SelectUp",
+    "Ctrl-Alt-n": "SelectDown",
     
     "Ctrl-u": "Undo",
     "Ctrl-r": "Redo",
