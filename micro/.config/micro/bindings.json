@@ -2,12 +2,17 @@
     "Alt-/": "lua:comment.comment",
     "CtrlUnderscore": "lua:comment.comment",
 
+    "Ctrl-c": "CommandMode",
+
 	"Ctrl-s": "Find",
 
     "Ctrl-f": "CursorRight",
     "Ctrl-b": "CursorLeft",
     "Ctrl-p": "CursorUp",
     "Ctrl-n": "CursorDown",
+
+    "Ctrl-e": "EndOfLine",
+    "Ctrl-a": "StartOfLine",
     
     "Ctrl-x": "Save",
     
@@ -19,6 +24,9 @@
     "Ctrl-Alt-b": "SelectLeft",
     "Ctrl-Alt-p": "SelectUp",
     "Ctrl-Alt-n": "SelectDown",
+
+    "Ctrl-Alt-e": "SelectToEndOfLine",
+    "Ctrl-Alt-a": "SelectToStartOfLine",
     
     "Ctrl-u": "Undo",
     "Ctrl-r": "Redo",
