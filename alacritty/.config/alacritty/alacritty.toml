@@ -1,0 +1,12 @@
+[bell]
+animation = "Ease"
+color = "#333333"
+command = "None"
+duration = 300
+
+[env]
+TERM = "alacritty"
+
+[window]
+decorations = "none"
+opacity = 0.9
