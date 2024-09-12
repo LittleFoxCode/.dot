@@ -19,6 +19,7 @@ general {
 order += "volume master"
 #order += "load"
 order += "cpu_usage"
+order += "memory"
 #order += "cpu_temperature 0"
 #order += "cpu_temperature 1"
 #order += "cpu_temperature 2"
@@ -48,7 +49,11 @@ load {
 }
 
 cpu_usage {
-	format = "◙ %usage "
+	format = "🧠 %usage "
+}
+
+memory {
+	format = "📇 %used / %total "
 }
 
 cpu_temperature 0 {
@@ -76,7 +81,8 @@ cpu_temperature 3 {
 }
 
 disk "/" {
-	format = "💾 %avail:/ " 
+	format = "💾 %used / %total "
+	prefix_type = custom
 }
 
 disk "/media/media" {
