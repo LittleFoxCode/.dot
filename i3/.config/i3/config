@@ -1,6 +1,7 @@
 
 # autostart
-exec --no-startup-id nitrogen --no-recurse --head=n --set-zoom-fill ~/.dot/wallpapers/1979-black-hole-simulation.jpg
+exec --no-startup-id cat ~/.dot/scripts/set-wallpaper-nitrogen.sh | bash -s ~/.dot/wallpapers/1979-black-hole-simulation.jpg 
+#exec --no-startup-id nitrogen --restore &
 exec --no-startup-id nm-applet &
 exec --no-startup-id xfsettingsd &
 exec --no-startup-id compton &
@@ -62,6 +63,11 @@ font pango:monospace 8
 # clear in small sizes. However, its unicode glyph coverage is limited, the old
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
+
+# Volume control
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle # Mute
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%  # Up
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%  # Down
 
 # common apps keybinds
 bindsym Print exec scrot 'Cheese_%a-%d%b%y_%H.%M.png' -e 'xdg-open ~/$f'
