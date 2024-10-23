@@ -10,3 +10,6 @@ TERM = "alacritty"
 [window]
 decorations = "none"
 opacity = 0.9
+
+[font]
+size=14.0
