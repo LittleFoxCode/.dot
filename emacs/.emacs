@@ -42,4 +42,14 @@
   :ensure t
   :bind ("C-x g" . magit))
 
+;; Eglot lps-interface
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs
+               '(python-mode . ("pyright" "-"))))
+
+
+;; LysKOM
+(load "~/.dot/scripts/lyskom.el")
+
 ;;; That's all folks
+(setq load-home-init-file t) ; don't load init file from ~/.xemacs/init.el
