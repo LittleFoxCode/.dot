@@ -2,9 +2,9 @@
 # autostart
 exec --no-startup-id cat ~/.dot/scripts/set-wallpaper-nitrogen.sh | bash -s ~/.dot/wallpapers/1979-black-hole-simulation.jpg 
 #exec --no-startup-id nitrogen --restore &
-exec --no-startup-id nm-applet &
-exec --no-startup-id xfsettingsd &
-exec --no-startup-id compton &
+#exec --no-startup-id nm-applet &
+#exec --no-startup-id xfsettingsd &
+#exec --no-startup-id compton &
 
 # panel
 bar {
