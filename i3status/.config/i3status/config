@@ -93,7 +93,7 @@ disk "/media/media" {
 battery 0 {
     format = "🔋 %percentage"
     last_full_capacity = true
-    path = "/sys/class/power_supply/BAT1/uevent"
+    path = "/sys/class/power_supply/BAT0/uevent"
 }
 
 wireless wlan0 {
