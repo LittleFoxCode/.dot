@@ -48,6 +48,7 @@
   :ensure t
   )
 
+(load-file "~/.dot/scripts/lyskom.el")
 
 ;; ;; Ellama
 ;; (use-package ellama
