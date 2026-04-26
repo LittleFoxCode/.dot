@@ -47,52 +47,6 @@
 (which-key-mode t)
 (global-flycheck-mode)
 
-
-;; AI and RAG
-
-;; GPTel
-;;; Keybinds
-(global-set-key (kbd "C-c g") 'gptel-menu)
-;; Register the backend
-(gptel-make-ollama "Ollama"             ;Any name of your choosing
-  :host "localhost:11434"               ;Where it's running
-  :stream t                             ;Stream responses
-  :models '(qwen2.5:14b, deepseek-r1:8b, gemma3:12b))               ;List of models
-
-;; Make backend and model default
-(setq
- gptel-model 'qwen2.5:14b
- gptel-backend (gptel-make-ollama "qwen2.5"
-                 :host "localhost:11434"
-                 :stream t
-                 :models '(qwen2.5:14b)))
-
-(setq
- gptel-model 'deepseek-r1:14b
- gptel-backend (gptel-make-ollama "deepseek-r1"
-                 :host "localhost:11434"
-                 :stream t
-                 :models '(deepseek-r1:14b)))
-
-(setq
- gptel-model 'gemma3:12b
- gptel-backend (gptel-make-ollama "gemma3"
-                 :host "localhost:11434"
-                 :stream t
-                 :models '(gemma3:12b)))
-
-;; Set the GPTel response buffer's major mode to `markdown-mode'.
-(defun gptel-set-response-buffer-major-mode ()
-  "Set the GPTel response buffer's major mode to `markdown-mode'."
-  (setq gptel-response-buffer-name "*gptel-response*")
-  (add-hook 'gptel-after-send-message-functions
-            (lambda ()
-              (with-current-buffer gptel-response-buffer-name
-                (unless (derived-mode-p 'markdown-mode)
-                  (markdown-mode))))))
-
-(gptel-set-response-buffer-major-mode)
-
 ;; Programming languages and LSP
 
 ;; LSP
