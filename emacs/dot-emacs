@@ -48,8 +48,6 @@
   :ensure t
   )
 
-(load-file "~/.dot/scripts/lyskom.el")
-
 
 ;;; That's all folks
 (custom-set-variables
