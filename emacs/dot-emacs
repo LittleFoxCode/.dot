@@ -48,6 +48,11 @@
   :ensure t
   )
 
+(use-package yaml-mode
+  :ensure t
+  )
+
+
 
 ;;; That's all folks
 (custom-set-variables
