@@ -1,0 +1,73 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 38,
+    "spacing": 4,
+    "margin-top": 6,
+    "margin-left": 12,
+    "margin-right": 12,
+
+    "modules-left":   ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["clock"],
+    "modules-right":  ["cpu", "memory", "battery", "pulseaudio", "network", "tray"],
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{id}",
+        "on-click": "activate"
+    },
+
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 60,
+        "separate-outputs": true
+    },
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%A, %d %B %Y}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>"
+    },
+
+    "cpu": {
+        "interval": 5,
+        "format": "CPU {usage:2}%",
+        "tooltip": false
+    },
+
+    "memory": {
+        "interval": 10,
+        "format": "MEM {percentage:2}%"
+    },
+
+    "battery": {
+        "interval": 30,
+        "states": { "warning": 30, "critical": 15 },
+        "format":          "BAT {capacity}%",
+        "format-charging": "CHG {capacity}%",
+        "format-plugged":  "AC  {capacity}%",
+        "format-unknown":  "BAT ---"
+    },
+
+    "pulseaudio": {
+        "format":       "VOL {volume}%",
+        "format-muted": "VOL ---",
+        "on-click":     "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-scroll-up":   "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 2%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+    },
+
+    "network": {
+        "format-wifi":       "WIFI {signalStrength}%",
+        "format-ethernet":   "ETH",
+        "format-linked":     "ETH (no IP)",
+        "format-disconnected": "NET ---",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}"
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
+    }
+}

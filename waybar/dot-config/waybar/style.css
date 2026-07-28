@@ -1,0 +1,109 @@
+* {
+    font-family: "Noto Sans", sans-serif;
+    font-size: 13px;
+    min-height: 0;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background: rgba(17, 17, 23, 0.92);
+    border: 1px solid rgba(51, 204, 255, 0.35);
+    border-radius: 10px;
+    color: #cdd6f4;
+}
+
+/* ── Left ── */
+
+#workspaces {
+    margin: 0 4px;
+}
+
+#workspaces button {
+    padding: 0 10px;
+    margin: 5px 2px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #888aaa;
+    transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+    background: rgba(51, 204, 255, 0.15);
+    color: #cdd6f4;
+}
+
+#workspaces button.active {
+    background: linear-gradient(45deg, rgba(51, 204, 255, 0.35), rgba(0, 255, 153, 0.35));
+    border: 1px solid rgba(51, 204, 255, 0.6);
+    color: #ffffff;
+}
+
+#workspaces button.urgent {
+    background: rgba(255, 80, 80, 0.4);
+    color: #ffffff;
+}
+
+#window {
+    padding: 0 12px;
+    color: #888aaa;
+    font-style: italic;
+}
+
+/* ── Center ── */
+
+#clock {
+    padding: 0 16px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* ── Right modules (shared pill style) ── */
+
+#cpu,
+#memory,
+#battery,
+#pulseaudio,
+#network,
+#tray {
+    padding: 0 12px;
+    margin: 5px 2px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #cdd6f4;
+}
+
+#cpu:hover,
+#memory:hover,
+#pulseaudio:hover,
+#network:hover {
+    background: rgba(51, 204, 255, 0.12);
+    color: #ffffff;
+}
+
+/* State colours */
+
+#battery.charging {
+    color: #00ff99;
+}
+
+#battery.warning:not(.charging) {
+    color: #ffcc00;
+}
+
+#battery.critical:not(.charging) {
+    color: #ff5555;
+}
+
+#pulseaudio.muted {
+    color: #666888;
+}
+
+#network.disconnected {
+    color: #666888;
+}
+
+#tray {
+    padding: 0 8px;
+}
