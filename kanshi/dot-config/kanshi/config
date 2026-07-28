@@ -1,0 +1,16 @@
+# Profile 1: Only laptop display
+profile portable {
+	output "eDP-1" enable
+}
+
+# Profile 2: Only Rokid glasses
+profile rokid {
+	output "eDP-1" disable
+	output "PNP(LBT) Rokid Max Unknown" enable scale 1.5
+}
+
+# Profile 3: Only docked monitor
+profile docked {
+	output "Ancor Communications Inc VG248 F3LMQS092438" enable mode 1920x1080@60 position 0,0 scale 1.0
+	output "eDP-1" disable
+}
