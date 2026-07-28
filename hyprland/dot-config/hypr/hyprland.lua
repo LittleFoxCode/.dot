@@ -27,6 +27,7 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("kanshi")
   hl.exec_cmd("hyprpaper")
   hl.exec_cmd("waybar")
+  hl.exec_cmd("hyprctl setcursor Bibata-Modern-Ice 24")
 end)
 
 ---------------------
@@ -61,6 +62,7 @@ local menu        = "wofi --show drun"
 
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 
+hl.env("XCURSOR_THEME", "Bibata-Modern-Ice")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("MOZ_ENABLE_WAYLAND", "0")
@@ -91,10 +93,10 @@ hl.env("MOZ_ENABLE_WAYLAND", "0")
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
     general = {
-        gaps_in  = 5,
-        gaps_out = 20,
+        gaps_in  = 3,
+        gaps_out = 8,
 
-        border_size = 2,
+        border_size = 1,
 
         col = {
             active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
