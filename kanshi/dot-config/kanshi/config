@@ -1,6 +1,6 @@
 # Profile 1: Only laptop display
 profile portable {
-	output "eDP-1" enable
+	output "eDP-1" enable scale 1.0
 }
 
 # Profile 2: Only Rokid glasses
