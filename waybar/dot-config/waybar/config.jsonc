@@ -9,7 +9,7 @@
 
     "modules-left":   ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["clock"],
-    "modules-right":  ["cpu", "memory", "backlight", "battery", "pulseaudio", "network", "tray"],
+    "modules-right":  ["cpu", "memory", "backlight", "battery", "pulseaudio", "bluetooth", "network", "tray"],
 
     "hyprland/workspaces": {
         "disable-scroll": true,
@@ -63,6 +63,17 @@
         "on-click":     "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "on-scroll-up":   "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 2%+",
         "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+    },
+
+    "bluetooth": {
+        "format":           "BT",
+        "format-connected": "BT {device_alias}",
+        "format-disabled":  "BT ---",
+        "format-off":       "BT OFF",
+        "tooltip-format":            "{controller_alias} ({controller_address})",
+        "tooltip-format-connected":  "{controller_alias}\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "  {device_alias} ({device_address})",
+        "on-click": "blueman-manager"
     },
 
     "network": {

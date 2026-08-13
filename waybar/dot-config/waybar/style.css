@@ -66,6 +66,7 @@ window#waybar {
 #backlight,
 #battery,
 #pulseaudio,
+#bluetooth,
 #network,
 #tray {
     padding: 0 12px;
@@ -79,6 +80,7 @@ window#waybar {
 #memory:hover,
 #backlight:hover,
 #pulseaudio:hover,
+#bluetooth:hover,
 #network:hover {
     background: rgba(51, 204, 255, 0.12);
     color: #ffffff;
@@ -99,6 +101,15 @@ window#waybar {
 }
 
 #pulseaudio.muted {
+    color: #666888;
+}
+
+#bluetooth.connected {
+    color: #33ccff;
+}
+
+#bluetooth.disabled,
+#bluetooth.off {
     color: #666888;
 }
 
