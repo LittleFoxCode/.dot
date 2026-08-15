@@ -55,9 +55,16 @@
 
 
 ;; Document readers
+(use-package olivetti
+  :ensure t)
+
 (use-package nov
   :ensure t
-  :mode ("\\.epub\\'" . nov-mode))
+  :mode ("\\.epub\\'" . nov-mode)
+  :hook (nov-mode . visual-line-mode)
+  :hook (nov-mode . variable-pitch-mode)
+  :hook (nov-mode . olivetti-mode)
+  :hook (nov-mode . (lambda () (display-line-numbers-mode -1))))
 
 (use-package pdf-tools
   :ensure t
