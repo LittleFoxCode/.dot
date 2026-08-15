@@ -1,63 +1,90 @@
-(setq inhibit-startup-message t)
-(setq visible-bell t)
-(setq show-paren-mode t)    ; I like to be able to see the matching parenthesis!
-(scroll-bar-mode -1)        ; Disable visible scrollbar
-(tool-bar-mode -1)          ; Disable the toolbar
-(tooltip-mode -1)           ; Disable tooltips
-(set-fringe-mode 10)        ; Padding around frame edges
-(menu-bar-mode -1)          ; Disable menu bar
+;; ============================================================
+;; UI — strip down the default Emacs chrome
+;; ============================================================
+(setq inhibit-startup-message t)   ; skip the splash screen
+(setq visible-bell t)              ; flash instead of beeping
+(setq show-paren-mode t)           ; highlight matching parenthesis
+(scroll-bar-mode -1)               ; no scrollbar (use C-v / M-v)
+(tool-bar-mode -1)                 ; no toolbar
+(tooltip-mode -1)                  ; no tooltip popups
+(set-fringe-mode 10)               ; padding around frame edges
+(menu-bar-mode -1)                 ; no menu bar
 
+(column-number-mode)               ; show column number in modeline
+(global-display-line-numbers-mode t)
+(setq select-enable-clipboard t)   ; share clipboard with the OS
 
-(column-number-mode)        ; Show column on modeline
-(global-display-line-numbers-mode t)   ; Activate linenumbers globally
-(setq select-enable-clipboard t) ; Enalbes to paste from other window and vice versa.
-
-;; Packages and package config
+;; ============================================================
+;; Package management
+;; Archives: org (org-mode releases), melpa (bleeding edge),
+;; elpa (GNU stable).  use-package is bootstrapped here so the
+;; rest of the file can use the :ensure t shorthand.
+;; ============================================================
 (require 'package)
- 
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+
+(add-to-list 'package-archives '("org"   . "http://orgmode.org/elpa/") t)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-(add-to-list 'package-archives '("elpa" . "https://elpa.gnu.org/packages/") t)
+(add-to-list 'package-archives '("elpa"  . "https://elpa.gnu.org/packages/") t)
 
 (setq package-enable-at-startup nil)
 (package-initialize)
 (unless package-archive-contents
+  ;; Only fetches archive index when it is missing — run
+  ;; M-x package-refresh-contents manually if a package can't be found.
   (package-refresh-contents))
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 (require 'use-package)
-(setq use-package-always-ensure t)
+(setq use-package-always-ensure t) ; auto-install packages declared with use-package
 
-;; Themeing and colours
+;; ============================================================
+;; Theming
+;; ============================================================
+
+;; zenburn — low-contrast dark theme, easy on the eyes
 (use-package zenburn-theme
   :ensure t
   :config
   (load-theme 'zenburn t))
 
+;; Colour-code nested parentheses in programming modes —
+;; makes Lisp / deeply nested code much easier to follow
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
-;; The GOAT of git interfaces
+;; ============================================================
+;; Git
+;; ============================================================
+
+;; magit — full Git interface inside Emacs.  C-x g opens status buffer.
 (use-package magit
   :ensure t
   :bind ("C-x g" . magit))
 
-;; Language-modes
+;; ============================================================
+;; Language modes
+;; ============================================================
 
 (use-package markdown-mode
-  :ensure t
-  )
+  :ensure t)
 
 (use-package yaml-mode
-  :ensure t
-  )
+  :ensure t)
 
-
-
+;; ============================================================
 ;; Document readers
+;; ============================================================
+
+;; olivetti — centres text with comfortable side margins.
+;; Used as a reading aid by nov (epub) below.
+;; Adjust width interactively with M-x olivetti-set-width.
 (use-package olivetti
   :ensure t)
 
+;; nov.el — epub reader.  Opens any .epub file automatically.
+;; Hooks enable word-wrap, proportional font, centred margins,
+;; and disable line numbers (none of which make sense for prose).
+;; Requires the `unzip' binary (add pkgs.unzip to configuration.nix).
 (use-package nov
   :ensure t
   :mode ("\\.epub\\'" . nov-mode)
@@ -66,6 +93,10 @@
   :hook (nov-mode . olivetti-mode)
   :hook (nov-mode . (lambda () (display-line-numbers-mode -1))))
 
+;; pdf-tools — native PDF renderer, replaces the built-in DocView.
+;; Requires the `epdfinfo' server binary; install via NixOS with
+;; pkgs.emacsPackages.pdf-tools in environment.systemPackages.
+;; Line numbers are disabled because they are incompatible with pdf-view-mode.
 (use-package pdf-tools
   :ensure t
   :config
@@ -78,9 +109,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(magit markdown-mode nov pdf-tools rainbow-delimiters yaml-mode
-	   zenburn-theme)))
+ '(package-selected-packages nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
