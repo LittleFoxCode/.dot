@@ -59,11 +59,6 @@
   :ensure t
   :mode ("\\.epub\\'" . nov-mode))
 
-(use-package pdf-tools
-  :ensure t
-  :config
-  (pdf-tools-install))
-
 ;;; That's all folks
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
